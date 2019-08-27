@@ -45,6 +45,7 @@
             <h2>专注互联网职业机会</h2>
             <div class="aui-form-content">
                 <div class="aui-form-content-item" style="display:block">
+                    <form action="UsersController/registerUsers.do" method="post" onsubmit="return submitUser()">
                         <span style="color: red" id="phonehint"></span>
                         <div class="aui-form-list">
                             <input type="text" class="aui-input" name="uPhone" placeholder="请输入手机号" data-required="required" autocomplete="off" onblur="phoneverify(this.value)">
@@ -56,9 +57,9 @@
                                 <img src="img/yzm.png" alt="">
                             </a>
                         </div>
+                        <span style="color: red" id="codehint"></span>
                         <div class="aui-form-list">
-                            <input type="text" class="aui-input" name="code" placeholder="请输入验证码" data-required="required" autocomplete="off">
-                            <input type="hidden" class="aui-hint" value="1">
+                            <input type="text" class="aui-input" onblur="codehint(this.value)" name="code" placeholder="请输入验证码" data-required="required" autocomplete="off">
                             <input type="button" class="aui-child" value="获取验证码" onclick="getcode()">
                         </div>
                         <span style="color: red" id="passwordhint1"></span>
@@ -70,8 +71,9 @@
                             <input type="password" class="aui-input" name="password2" placeholder="请再次确认密码" onblur="passwordhint12(this.value)"/>
                         </div>
                         <div class="aui-form-btn">
-                            <input type="button" class="aui-btn" value="注&nbsp;册" onclick="">
+                            <input type="submit" class="aui-btn" value="注&nbsp;册">
                         </div>
+                    </form>
                 </div>
             </div>
         </div>
