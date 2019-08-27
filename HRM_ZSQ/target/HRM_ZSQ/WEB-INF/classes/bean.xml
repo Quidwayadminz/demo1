@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!-- 引入外部properties文件-->
+    <context:property-placeholder location="classpath:db.properties"/>
+    <!-- 配置dataSource 驱动程序管理器数据源-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <!--配置四要素-->
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+    <!-- 配置sqlSessionFactory sqlsession工厂类 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--引入数据源-->
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 取别名(给model下的类全部取别名，别名为类名（大小写都行）) -->
+        <property name="typeAliasesPackage" value="cn.zsq.model" />
+        <!--引入mybatisConfig.xml配置文件 -->
+        <property name="configLocation" value="classpath:mybatisConfig.xml"/>
+        <!--加载映射文件 -->
+        <property name="mapperLocations" value="classpath:cn/zsq/dao/*.xml"/>
+    </bean>
+    <!-- 给dao层mapper创建子类代理 -->
+    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 指定要代理的路径 -->
+        <property name="basePackage" value="cn.zsq.dao" />
+        <!--因为底层是通过反射 赋值 所以需要指定名称 -->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+    <!--配置数据源事务管理器-->
+    <bean id="manager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--给事务管理器定义通告  -->
+    <tx:advice transaction-manager="manager" id="interceptor">
+        <tx:attributes>
+            <!--给所有方法都设置默认传播行为 -->
+            <tx:method name="*"/>
+            <!--给get开头或find开头的方法将传播行为设置为：
+             以非事务的方式执行，如果当前有事务，则把当前事务挂起；
+             -->
+            <tx:method name="get*" propagation="SUPPORTS"/>
+            <tx:method name="find*" propagation="SUPPORTS"/>
+        </tx:attributes>
+    </tx:advice>
+    <!--配置切入-->
+    <aop:config>
+        <!--配置切点 cn.zsq.service 下的 任何返回类 任何参数的方法 -->
+        <aop:pointcut id="pc" expression="execution(* cn.zsq.service.*.*(..))"/>
+        <!--将通告注入切点中-->
+        <aop:advisor advice-ref="interceptor" pointcut-ref="pc"/>
+    </aop:config>
+
+</beans>
