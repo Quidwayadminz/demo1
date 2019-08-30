@@ -20,6 +20,11 @@
     <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
     <meta content="telephone=no" name="format-detection"/>
     <link href="succeed/css/style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript">
+        function f() {
+            window.location.href="UsersController/recruitLoginShow.do";
+        }
+    </script>
 </head>
 <body>
 
@@ -46,14 +51,11 @@
                 <p>您的账号为：${requestScope.account},请牢记您的账号</p>
             </div>
             <div class="aui-back-button">
-                <button onclick="javascript:function f() {
-                  window.location.href='UsersController/registerUsers.do';
-                }">返回登录</button>
+                <button onclick="f()">返回登录</button>
             </div>
         </div>
     </section>
 </section>
-
 </body>
 </html>
 

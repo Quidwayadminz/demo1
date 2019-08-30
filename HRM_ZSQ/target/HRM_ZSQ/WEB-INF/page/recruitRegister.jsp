@@ -53,8 +53,10 @@
                         <span style="color: red" id="verification_codehint"></span>
                         <div class="aui-form-list">
                             <input type="text" class="aui-input" name="verification_code" placeholder="请证明你不是机器人" data-required="required" autocomplete="off" onblur="verificationcode(this.value)">
-                            <a href="#" class="aui-child aui-child-img">
-                                <img src="img/yzm.png" alt="">
+                            <!--href="UsersController/recruitRegisterShow.do"-->
+                            <a  class="aui-child aui-child-img">
+                                <img id="codeImg" src="${pageContext.request.contextPath}/UsersController/imageVerify.do?x="+Math.floor(Math.random()*100)
+                                     onclick="codeImg12()">
                             </a>
                         </div>
                         <span style="color: red" id="codehint"></span>
@@ -94,9 +96,6 @@
 </section>
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
-<script>
-
-</script>
 <script type="text/javascript">
     $(function(){
 

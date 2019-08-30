@@ -22,7 +22,7 @@
     <link href="succeed/css/style.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript">
         function f() {
-            window.location.href="UsersController/registerUsers.do";
+            window.location.href="UsersController/recruitLoginShow.do";
         }
     </script>
 </head>

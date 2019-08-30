@@ -11,6 +11,11 @@
       </list>
     </option>
   </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/page/addEducation.jsp" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/page/addProfessionalskill.jsp" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/page/addWorkxperience.jsp" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>

@@ -24,5 +24,22 @@
         <!-- 设置后缀-->
         <property name="suffix" value=".jsp"/>
     </bean>
+    <!-- 配置拦截器-->
+    <mvc:interceptors>
+        <!-- 如果存在多个拦截器，先定义先执行 -->
+        <mvc:interceptor>
+            <!-- 需要拦截路径-->
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/RecruitmentController/recruitmentShow.do"/>
+            <mvc:exclude-mapping path="/UsersController/recruitLoginShow.do"/>
+            <mvc:exclude-mapping path="/UsersController/recruitRegisterShow.do"/>
+            <mvc:exclude-mapping path="/UsersController/getCode.do"/>
+            <mvc:exclude-mapping path="/UsersController/getCodeImg.do"/>
+            <mvc:exclude-mapping path="/UsersController/registerUsers.do"/>
+            <mvc:exclude-mapping path="/UsersController/loginUsers.do"/>
+            <mvc:exclude-mapping path="/UsersController/imageVerify.do"/>
+            <bean class="cn.zsq.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>

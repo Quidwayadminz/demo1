@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface UsersService {
       String registerUsers(Users users);
+      Users loginUsers(Users users);
 }

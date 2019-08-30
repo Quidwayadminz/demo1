@@ -23,8 +23,13 @@
     <div class="div_table">
         <table style="width:500px;height:30px">
             <tr>
+                <td>
+                    <c:if test="${sessionScope.users != null}">
+                        <span>欢迎您：${sessionScope.users.uAccount}</span>
+                    </c:if>
+                </td>
                 <td><a href="UsersController/recruitLoginShow.do">登录/注册</a></td>
-                <td><a href="/">我的简历</a></td>
+                <td><a href="ResumeController/resumeShow.do">我的简历</a></td>
                 <td><a href="/">通知<span style="color:red">0</span></a></td>
             </tr>
         </table>

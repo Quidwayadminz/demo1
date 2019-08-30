@@ -27,6 +27,8 @@
     <title>登录页面</title>
     <link rel="stylesheet" type="text/css" href="css/base.css">
     <link rel="stylesheet" type="text/css" href="css/home.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/recruit/recruitLogin.js"></script>
 </head>
 <body>
 
@@ -48,20 +50,18 @@
             </div>
             <div class="aui-form-content">
                 <div class="aui-form-content-item">
-                    <form action="">
                         <div class="aui-form-list">
-                            <input type="text" class="aui-input" name="" placeholder="请输入手机号/邮箱" data-required="required" autocomplete="off">
+                            <input type="text" class="aui-input" name="uAccount" placeholder="请输入账号" data-required="required" autocomplete="off">
                         </div>
                         <div class="aui-form-list">
-                            <input type="password" class="aui-input" name="" placeholder="请输入密码" data-required="required" autocomplete="off">
+                            <input type="password" class="aui-input" name="uPass" placeholder="请输入密码" data-required="required" autocomplete="off">
                         </div>
                         <div class="aui-form-pwd clearfix">
                             <a href="#">忘记密码？</a>
                         </div>
                         <div class="aui-form-btn">
-                            <input type="submit" class="aui-btn" value="登&nbsp;录" >
+                            <input type="button" class="aui-btn" value="登&nbsp;录" onclick="loginUser()" >
                         </div>
-                    </form>
                 </div>
                 <div class="aui-form-content-item">
                     <form action="">
@@ -104,7 +104,6 @@
     </div>
 </section>
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript">
     $(function(){
         /*tab标签切换*/

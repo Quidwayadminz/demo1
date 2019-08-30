@@ -35,4 +35,12 @@ public class UsersServiceImpl implements UsersService {
         if(usersDao.addUser(users)) return account;
         return null;
     }
+
+    @Override
+    public Users loginUsers(Users users) {
+        if(users.getuPass()==null||users.getuAccount()==null)return null;
+        Users users1 = usersDao.getUsersPassAndUAccount(users);
+        if(users1!=null) return users1;
+        return  null;
+    }
 }

@@ -1,12 +1,33 @@
+
 var phoneverifybool = false;
-var verificationcodebool = false;
+var verificationcodebool1 = false;
 var passwordhint1bool = false;
 var passwordhint2bool = false;
 var codema;
 var codemahintbool = false;
+var bool = false;
+function getcodeImg() {
+    var codeval = $("input[name='verification_code']").val();
+    $.ajax({
+        type:"post",
+        data:"codeImg="+codeval,
+        url:"UsersController/getCodeImg.do",
+        async:false,
+        success:function (obj) {
+            if(obj=='ok'){
+                bool=true;
+            }else{
+                alert(obj);
+                bool = false;
+            }
+        }
+    });
+
+}
 function submitUser(){
-    if(phoneverifybool&&verificationcodebool&&passwordhint1bool&&passwordhint2bool&&codemahintbool){
-            return true;
+    if(phoneverifybool&&verificationcodebool1&&passwordhint1bool&&passwordhint2bool&&codemahintbool){
+        getcodeImg();
+        return bool;
     }else{
         alert("请检查您的填写的信息是否正确！");
         return false;
@@ -25,12 +46,12 @@ function phoneverify(phone) {
 }
 function verificationcode(code) {
     var verification_codehint = document.getElementById("verification_codehint");
-    if(code!="4je3"){
-        verification_codehint.innerText="验证码有误！";
-        verificationcodebool = false;
+    if(code=='' || code == null){
+        verification_codehint.innerText="图片验证不能为空！";
+        verificationcodebool1 = false;
     }else{
         verification_codehint.innerText="";
-        verificationcodebool = true;
+        verificationcodebool1 = true;
     }
 }
 function codehint(code) {
@@ -93,4 +114,8 @@ function getcode() {
         }
     });
 }
-
+function codeImg12() {
+    var img = document.getElementById('codeImg');
+    //Math.floor(Math.random() 请求的值一样就不会重写发送请求了
+    img.src = "UsersController/imageVerify.do?x="+Math.floor(Math.random()*100);
+}

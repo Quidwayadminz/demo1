@@ -9,4 +9,9 @@
     <select id="getUsers" resultType="cn.zsq.model.Users">
         select * from USERS
     </select>
+    <select id="getUsersPassAndUAccount" resultType="cn.zsq.model.Users">
+        select  * from USERS where U_ACCOUNT = #{uAccount} and U_PASS = #{uPass}
+    </select>
+
+
 </mapper>
