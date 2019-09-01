@@ -22,59 +22,57 @@
         <div>
             <h5>个人信息<span style="color: red">必填</span></h5>
             <div>
-                <span>姓名</span><input type="text" name="rName"></div>
+                <span>姓名</span><input type="text" name="rName" onblur="rNameVerify(this.value)"></div>
                 <span style="color: red" id="rNameHint"></span>
-            <div>
-                <span>性别</span><input type="radio" value="男" name="rSex" checked>
-                男<input type="radio" value="女" name="rSex" >
+            <div  id="sexdiv">
+                <span>性别</span>
+                <input type="radio" value="男" name="rSex12" checked>
+                男<input type="radio" value="女" name="rSex12"  >
                 女
             </div>
             <div>
                 <span>出生日期</span>
-                <input type="date" name="rBirthdate">
+                <input type="date" name="rBirthdate" onblur="rBirthdateVerify(this.value)">
                 <span style="color: red" id="rBirthdateHint"></span>
             </div>
             <div id="XbjPmpEEbraunZH">
                 <span>户口所在地</span>
-                <select name="provinceselect" onchange="provincechange(this)">
-                    <option>请选择</option>
+                 <select id="bookcityselect" name="cityselect" onchange="citychange(this)">
+                    <option selected="selected" value="请选择">请选择</option>
                 </select>
-                <select name="cityselect" onchange="citychange(this)">
-                    <option>请选择</option>
-                </select>
-                <select name="countyselect">
-                    <option>请选择</option>
+                <select id="bookcountyselect" name="countyselect">
+                    <option selected="selected" value="请选择">请选择</option>
                 </select>
                 <span style="color: red" id="XbjPmpEEbraunZHHint"></span>
             </div>
             <div id="nowlives">
                 <span>现居住城市</span>
-                <select name="provinceselect" onchange="provincechange(this)">
-                    <option>请选择</option>
+                <select id="nowprovinceselect" name="provinceselect" onchange="provincechange(this)">
+                    <option selected="selected" value="请选择">请选择</option>
                 </select>
-                <select name="cityselect" onchange="citychange(this)">
-                    <option>请选择</option>
+                <select id="nowcityselect" name="cityselect" onchange="citychange(this)">
+                    <option selected="selected" value="请选择">请选择</option>
                 </select>
-                <select name="countyselect">
-                    <option>请选择</option>
+                <select id="nowcountyselect">
+                    <option selected="selected" value="请选择">请选择</option>
                 </select>
                 <span style="color: red" id="nowlivesHint"></span>
             </div>
             <div>
                 <span>手机号码</span>
-                <input type="text" name="rPhoneNumber"/>
+                <input type="text" name="rPhoneNumber" onblur="rPhoneNumberVerify(this.value)"/>
                 <span style="color:red" id="rPhoneNumberHint"></span>
             </div>
             <div>
                 <span>婚姻状况</span>
-                <input type="radio" value="已婚" name="rMaritalStatus" checked>
-                已婚<input type="radio" value="未婚" name="rMaritalStatus" >
+                <input type="radio" value="1" name="rMaritalStatus" checked>
+                已婚<input type="radio" value="2" name="rMaritalStatus" >
                 未婚
                 <span style="color: red" id="rMaritalStatusHint"></span>
             </div>
             <div>
                 <span>电子邮箱</span>
-                <input type="text" name="rEmail">
+                <input type="text" name="rEmail" onblur="rEmailVerify(this.value)">
                 <span style="color: red" id="rEmailHint"></span>
             </div>
             <div>
@@ -91,18 +89,18 @@
             </div>
             <div>
                 <span>工作经验</span>
-                <textarea rows="3" cols="30" name="rWorkexperience">
-                </textarea>
+                <textarea rows="3" cols="30" name="rWorkexperience" onblur="rWorkexperienceVerify(this.value)"></textarea>
                 <span style="color: red" id="rWorkexperienceHint"></span>
             </div>
             <div>
                 <span>专业技能</span>
-                <textarea rows="3" cols="30" name="rProfessionalskill">
-                </textarea>
+                <textarea rows="3" cols="30" name="rProfessionalskill" onblur="rProfessionalskillVerify(this.value)"></textarea>
                 <span style="color: red" id="rProfessionalskillHint"></span>
             </div>
             <div>
-                <input type="button" value="提交" onclick="">
+                <input type="button" value="提交" onclick="addResume()">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" value="返回" onclick="returnShow()">
             </div>
         </div>
     </div>

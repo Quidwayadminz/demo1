@@ -4,4 +4,10 @@
     <select id="getRecruitments" resultType="cn.zsq.model.Recruitment">
             select * from  RECRUITMENT
     </select>
-</mapper>
+    <select id="getRecruitmentsByAny" resultType="cn.zsq.model.Recruitment">
+        select * from  RECRUITMENT
+        <where>
+            RM_ID = #{rmId}
+        </where>
+    </select>
+        </mapper>

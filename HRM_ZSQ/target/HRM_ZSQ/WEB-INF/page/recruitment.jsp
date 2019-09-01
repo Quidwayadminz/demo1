@@ -66,7 +66,11 @@
                         </div>
                         <div class="join_ms"><i></i>操作</div>
                         <div class="join_cn">
-                            <p><input type="button" value="简历投递"></p>
+                            <p>
+                                <a href="ResumeController/resumeDeliver.do?rmId=${i.rmId}">
+                                    简历投递
+                                </a>
+                            </p>
                         </div>
                     </td>
                 </tr>

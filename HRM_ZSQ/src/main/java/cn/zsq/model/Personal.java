@@ -1,6 +1,6 @@
 package cn.zsq.model;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * 个人信息

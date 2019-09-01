@@ -38,6 +38,7 @@
             <mvc:exclude-mapping path="/UsersController/registerUsers.do"/>
             <mvc:exclude-mapping path="/UsersController/loginUsers.do"/>
             <mvc:exclude-mapping path="/UsersController/imageVerify.do"/>
+            <mvc:exclude-mapping path="/UsersController/getPhoneExistNoKo.do"/>
             <bean class="cn.zsq.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>

@@ -1,6 +1,7 @@
 package cn.zsq.model;
 
-import java.util.Date;
+
+import java.sql.Timestamp;
 
 /**
  * 招聘信息
@@ -8,7 +9,7 @@ import java.util.Date;
 public class Recruitment {
     private Integer rmId;//招聘id
     private String rmPostName;//职位名称
-    private Date rmReleaseDate;//发布时间
+    private Timestamp rmReleaseDate;//发布时间
     private Double rmSalary;//薪资
     private String rmWorkplace;//工作地点
     private String rmExperience;//工作经验
@@ -30,11 +31,11 @@ public class Recruitment {
         this.rmPostName = rmPostName;
     }
 
-    public Date getRmReleaseDate() {
+    public Timestamp getRmReleaseDate() {
         return rmReleaseDate;
     }
 
-    public void setRmReleaseDate(Date rmReleaseDate) {
+    public void setRmReleaseDate(Timestamp rmReleaseDate) {
         this.rmReleaseDate = rmReleaseDate;
     }
 

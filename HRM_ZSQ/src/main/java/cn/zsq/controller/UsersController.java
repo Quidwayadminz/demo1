@@ -132,4 +132,12 @@ public class UsersController {
             e.printStackTrace();
         }
     }
+    @RequestMapping("getPhoneExistNoKo.do")
+    public void getPhoneExistNoKo(String uPhone,HttpServletResponse response) throws IOException {
+            if(usersService.getUserByUphone(uPhone)){
+                response.getWriter().write("no");
+            }else{
+                response.getWriter().write("ok");
+            }
+    }
 }

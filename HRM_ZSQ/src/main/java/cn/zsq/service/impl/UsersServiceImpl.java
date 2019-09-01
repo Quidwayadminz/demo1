@@ -43,4 +43,23 @@ public class UsersServiceImpl implements UsersService {
         if(users1!=null) return users1;
         return  null;
     }
+
+    @Override
+    public Users getUphoneExistServie(String uPhone) {
+        if(uPhone==null)return null;
+        Users users = new Users();
+        users.setuPhone(uPhone);
+        return  usersDao.getUserByAll(users).get(0).getuPhone().equals(uPhone)?new Users():null;
+    }
+
+    @Override
+    public boolean getUserByUphone(String uPhone) {
+        if(uPhone==null)return true;
+        Users users = new Users();
+        users.setuPhone(uPhone);
+        if(usersDao.getUserByUphone(users)!=null){
+            return true;
+        }
+        return false;
+    }
 }

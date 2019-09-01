@@ -18,4 +18,5 @@ public class RecruitmentController {
         model.addAttribute("list",recruitmentService.getRecruitment());
         return "recruitment";
     }
+
 }

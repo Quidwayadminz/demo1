@@ -17,4 +17,5 @@ public class RecruitmentServiceImpl implements RecruitmentService {
     public List<Recruitment> getRecruitment() {
         return recruitmentDao.getRecruitments();
     }
+
 }

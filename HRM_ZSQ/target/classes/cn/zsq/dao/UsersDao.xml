@@ -12,6 +12,29 @@
     <select id="getUsersPassAndUAccount" resultType="cn.zsq.model.Users">
         select  * from USERS where U_ACCOUNT = #{uAccount} and U_PASS = #{uPass}
     </select>
+    <select id="getUserByAll" resultType="cn.zsq.model.Users">
+        select * from USERS
+        <where>
+            <if test="uId!=null">
+                and U_ID = #{uId}
+            </if>
+            <if test="uPass!=null">
+                and U_PASS = #{uPass}
+            </if>
+            <if test="uAccount!=null">
+                and U_ACCOUNT = #{uAccount}
+            </if>
+            <if test="uType!=null">
+                and U_TYPE = #{uType}
+            </if>
+            <if  test="uPhone!=null">
+                and U_PHONE = #{uPhone}
+            </if>
+        </where>
+    </select>
+    <select id="getUserByUphone" resultType="cn.zsq.model.Users">
+        select * from USERS where U_PHONE = #{uPhone}
+    </select>
 
 
 </mapper>

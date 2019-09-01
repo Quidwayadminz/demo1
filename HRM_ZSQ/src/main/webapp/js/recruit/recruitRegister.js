@@ -36,12 +36,24 @@ function submitUser(){
 
 function phoneverify(phone) {
     var phonehint = document.getElementById("phonehint");
-    if(!(/^1[3456789]\d{9}$/.test(phone))){
+    if((/^1[3456789]\d{9}$/.test(phone))){
+        $.ajax({
+            type:"post",
+            url:"UsersController/getPhoneExistNoKo.do",
+            data:"uPhone="+phone,
+            success:function (obj) {
+                if(obj=='ok'){
+                    phonehint.innerText="";
+                    phoneverifybool = true;
+                }else{
+                    phonehint.innerText="此手机号码，已注册账号！";
+                    phoneverifybool = false;
+                }
+            }
+        });
+    }else{
         phonehint.innerText="手机号码有误，请重填!";
         phoneverifybool = false;
-    }else{
-        phonehint.innerText="";
-        phoneverifybool = true;
     }
 }
 function verificationcode(code) {

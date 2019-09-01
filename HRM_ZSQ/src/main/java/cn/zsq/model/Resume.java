@@ -1,7 +1,8 @@
 package cn.zsq.model;
 
 
-import java.util.Date;
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 
@@ -18,12 +19,12 @@ public class Resume {
     private String rPhoneNumber;//手机号码
     private String rEmail;//邮箱
     private Integer rMaritalStatus;//婚姻状况
-    private Date rUpdateDate;//上次修改时间
+    private Timestamp rUpdateDate;//上次修改时间
     private Users users;//用户 一对多关系
     private String rEducationName;//学历
     private String rWorkexperience ;//工作经验
     private String rProfessionalskill;//专业技能
-    private Integer rState;//状态 1 表示用户简历  2表示已经投出简历 3.已查看 4.通知面试
+    private Integer rState;// 2表示已经投出简历 3.已查看 4.通知面试
 
     public Integer getrId() {
         return rId;
@@ -97,11 +98,11 @@ public class Resume {
         this.rMaritalStatus = rMaritalStatus;
     }
 
-    public Date getrUpdateDate() {
+    public Timestamp getrUpdateDate() {
         return rUpdateDate;
     }
 
-    public void setrUpdateDate(Date rUpdateDate) {
+    public void setrUpdateDate(Timestamp rUpdateDate) {
         this.rUpdateDate = rUpdateDate;
     }
 
